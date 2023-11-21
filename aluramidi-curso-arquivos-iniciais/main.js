@@ -32,8 +32,7 @@ const listaDeTeclas = document.querySelectorAll('.tecla');
 
 let contador = 0;
 
-   for(let contador = 0 ; contador < listaDeTeclas.length; contador++) {
-
+   for(let contador = 0 ; contador < listaDeTeclas.length; contador++) {/*O primeiro passo é criar uma referência (const listaDeTeclas) para poder receber a lista com todas as teclas*/
         const tecla = listaDeTeclas[contador];
         const instrumento = tecla.classList[1];
         const idAudio = `#som_${instrumento}`;
