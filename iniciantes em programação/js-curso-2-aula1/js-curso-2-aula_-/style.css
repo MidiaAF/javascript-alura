@@ -28,7 +28,7 @@ body::before {
 
 .container {
     width: 80%;
-    height: 80%;
+    height: 70%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,8 +44,8 @@ body::before {
 .container__conteudo {
     display: flex;
     align-items: center;
-    position: absolute;
-    bottom: 0;
+    position: absolute;  
+    
 }
 
 .container__informacoes {
@@ -92,7 +92,7 @@ body::before {
 
 h1 {
     font-family: 'Chakra Petch', sans-serif;
-    font-size: 72px;
+    font-size: 80px;
     padding-bottom: 3rem;
 }
 
@@ -102,7 +102,7 @@ button {
 }
 
 .texto__paragrafo {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 400;
 }
 
@@ -118,23 +118,42 @@ button:disabled {
 
     .container__botao {
         font-size: 16px;
+       
     }
 
 
     .texto__paragrafo {
         font-size: 24px;
+        
     }
 
     .container__imagem-pessoa {
-        display: none;
+        display: none;        
+
+       
     }
 
     .container__conteudo {
         display: block;
         position: inherit;
+        
+       
     }
 
     .container__informacoes {
         padding: 1rem
-    }
+    }       
+
+}
+
+.container__imagem-pessoa {
+    width: 50%; /* Ajuste a largura conforme necessário */
+    height: 105%; /* Mantenha a proporção */
+    display: flex;
+    align-items: flex-end; /* Alinha o conteúdo no final do container */
+    justify-content: flex-end; /* Alinha o conteúdo à direita do container */
+    position: absolute;
+    left:50%;
+    bottom: 0;
+  
 }
