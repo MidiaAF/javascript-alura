@@ -1,10 +1,15 @@
+let listaDeNumerosSorteados = [];
+let numeroLimiteTentativas = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1; // começar pelo 1 de tentativas
+
+
 
 
 function exibirTextoNaTela(tag, texto) { // criando a função dos textos 
     let campo = document.querySelector(tag); // tag o que eles tem em comum e texto o que tem diferente
     campo.innerHTML = texto;//descrever texto 
+    responsiveVoice.speak(texto , 'Brazilian Portuguese Female', {rate:1.2}); // texto da tela, linguagem e velocidade / (Voice) 
 }
 
 function exibirMensagemInicial(){
@@ -19,7 +24,7 @@ function verificarChute() { //
     if ( chute  == numeroSecreto) { // chutar numero 
         exibirTextoNaTela('h1', 'Acertou');
         let palavraTentativa =  tentativas > 1 ? 'tentativas' : 'tentativa' ;  // se numeroque colocar for maior que 1 tentativas menor ou tentativa 
-        let mensagemTentativas = `Voc ê descobriu o número secreto com ${tentativas} ${palavraTentativa}!`; // numero: 1 de tentativas 
+        let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`; // numero: 1 de tentativas 
         exibirTextoNaTela('p', mensagemTentativas );
         document.getElementById('reiniciar').removeAttribute('disabled');//desabilitar um button
     }else{
@@ -37,8 +42,20 @@ function verificarChute() { //
    //console.log(numeroSecreto); // numero esta secreto quando clicar em chutar 
     
 }
-function gerarNumeroAleatorio() {
-    return parseInt(Math.random() * 10 + 1);//partInt= numeros inteiros retornar numeros aleatoriso true e false /// 
+function gerarNumeroAleatorio() {// verificar se na lista já tem o numero escolhido 
+   let numeroEscolhido = parseInt(Math.random() * numeroLimiteTentativas + 1);//partInt= numeros inteiros retornar numeros aleatoriso true e false /// quantidade de numeros sorteados
+   let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length;
+    if(quantidadeDeElementosNaLista === numeroLimiteTentativas ){ 
+        listaDeNumerosSorteados = []; // quando atingir quantidade de numeros,limpar a lista após atingir a quantidade de numeros sorteados
+    }
+
+   if(listaDeNumerosSorteados.includes(numeroEscolhido)){ // includes : verifica se o numero esta na lista 
+        return gerarNumeroAleatorio();// pra que ele escolha um novo numero se tiver ok inclua, se não ( else)
+   }else
+   listaDeNumerosSorteados.push(numeroEscolhido);//Push = inserir o numero sorteado no final da lista Array
+   console.log(listaDeNumerosSorteados);
+   return numeroEscolhido;
+   
 }
 
 function limparCampo(){
@@ -53,6 +70,8 @@ function reiniciarJogo() {
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled', true);// só habilitar quando for um novo jogo 
 }
+
+
 
 
 

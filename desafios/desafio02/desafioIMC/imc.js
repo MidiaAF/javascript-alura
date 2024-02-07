@@ -23,8 +23,8 @@ console.log(resultadoCotacao);
 
 //Crie uma função que mostre na tela a área e o perímetro de uma sala retangular, utilizando altura e largura que serão dadas como parâmetro.
 function areaPerimetro(altura, largura) {
-    let area =  altura * largura;
-    let perimetro = 2 * (altura + largura);
+    let area =  (altura * largura).toFixed(2)  ;
+    let perimetro = (2 * (altura + largura)).toFixed(2);
     console.log(`A área da sala: ${area} metros quadrados`);
     console.log(`Perimetroda sala: ${perimetro} metros`);
 }
@@ -36,8 +36,8 @@ areaPerimetro(altura,largura);
 //////////////////Crie uma função que mostre na tela a área e o perímetro de uma sala circular, utilizando seu raio que será fornecido como parâmetro. Considere Pi = 3,14.
 
 function areaPerimetroSalaCircular(raio) {
-    let areaSala = Math.PI * raio * raio;
-    let perimetroSala = 2 * MathPI * raio;
+    let areaSala = (Math.PI * raio * raio).toFixed(2);
+    let perimetroSala = (2 * Math.PI * raio).toFixed(2) ;
     console.log( `A área da sala é: ${areaSala} `);
     console.log( `A área da sala é: ${perimetroSala} `);
 }
@@ -56,7 +56,8 @@ function tabuada (numero){
 }      
 }
 
-let numero = 10;
-tabuada(numero)
+let numero = 9;
+tabuada(numero);
 
+///////////
 
